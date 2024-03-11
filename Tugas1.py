@@ -28,4 +28,31 @@ if __name__ == "__main__":
     harga = [0] * MaxPesanan
     Jml_Pesanan = 0
     total_harga = 0
+# Masuk ke dalam loop pemesanan
+    while True:
+        order = input("\nSilahkan ketik pesanan Anda: ")
 
+        # Jika pengguna mengetik "done," keluar dari loop
+        if order.lower() == "done":
+            break
+
+        current = head
+        # Mencari item-menu dalam linked list
+        while current is not None:
+            if current.NamaMenu == order:
+                # Menambahkan pesanan ke dalam array dan memperbarui total harga
+                pesanan[Jml_Pesanan] = current.NamaMenu
+                harga[Jml_Pesanan] = current.Harga
+                Jml_Pesanan += 1
+                total_harga += current.Harga
+                print("Pesanan Anda", order, "sudah ditambahkan ke keranjang")
+                break
+            current = current.next
+
+    # Menampilkan item yang dipesan dan total harga
+    print("\nPesanan Anda:")
+    for i in range(Jml_Pesanan):
+        print(pesanan[i], "- Rp.", harga[i])
+
+    print("Total harga pesanan Anda: Rp.", total_harga)
+    print("Terima Kasih telah E-Order di Warung Kami")
