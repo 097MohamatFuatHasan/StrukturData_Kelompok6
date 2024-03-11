@@ -1,3 +1,29 @@
+# Mendefinisikan sebuah kelas untuk item-menu
+class MenuItem:
+    def _init_(self, NamaMenu, Harga):
+        # Menginisialisasi item-menu dengan nama, harga, dan pointer next
+        self.NamaMenu = NamaMenu
+        self.Harga = Harga
+        self.next = None
+
+# Variabel global untuk mengelola linked list
+head = None
+tail = None
+current = None
+
+# Fungsi untuk menambahkan item-menu ke linked list
+def add_menu_item(NamaMenu, Harga):
+    global head, tail, current
+    new_item = MenuItem(NamaMenu, Harga)
+
+    # Jika list kosong, item baru menjadi head dan tail
+    if head is None:
+        head = new_item
+        tail = new_item
+    else:
+        # Menambahkan item baru ke akhir list
+        tail.next = new_item
+        tail = new_item
 # Fungsi untuk menampilkan item-menu
 def display_menu():
     global head
