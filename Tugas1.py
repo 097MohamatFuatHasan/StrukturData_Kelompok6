@@ -1,6 +1,6 @@
 # Mendefinisikan sebuah kelas untuk item-menu
 class MenuItem:
-    def _init_(self, NamaMenu, Harga):
+    def __init__(self, NamaMenu, Harga):
         # Menginisialisasi item-menu dengan nama, harga, dan pointer next
         self.NamaMenu = NamaMenu
         self.Harga = Harga
@@ -23,7 +23,8 @@ def add_menu_item(NamaMenu, Harga):
     else:
         # Menambahkan item baru ke akhir list
         tail.next = new_item
-        tail = new_item
+        tail = new_item
+
 # Fungsi untuk menampilkan item-menu
 def display_menu():
     global head
@@ -54,7 +55,8 @@ if __name__ == "__main__":
     harga = [0] * MaxPesanan
     Jml_Pesanan = 0
     total_harga = 0
-# Masuk ke dalam loop pemesanan
+
+    # Masuk ke dalam loop pemesanan
     while True:
         order = input("\nSilahkan ketik pesanan Anda: ")
 
