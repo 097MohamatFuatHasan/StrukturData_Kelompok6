@@ -20,3 +20,25 @@ class Peta:
             del self.cityList[kotaDihapus]  # Hapus kota dari dictionary
             return True
         return False  # Mengembalikan False jika kota tidak ditemukan
+
+   
+    def tambahkanJalan(self,kota1,kota2):
+        if kota1 in self.cityList and kota2 in self.cityList:
+            #masukkan kota 1 di list kota2
+            self.cityList[kota2].append(kota1)
+            #masukkan kota 2 di list kota1
+            self.cityList[kota1].append(kota2)
+            return True
+        return False
+    
+    def hapusJalan(self,kota1,kota2):
+        if kota1 in self.cityList and kota2 in self.cityList:
+            #hapus kota 1 di list kota2
+            self.cityList[kota2].remove(kota1)
+            #hapus kota 2 di list kota1
+            self.cityList[kota1].remove(kota2)
+            return True
+        return False
+        
+
+petaJatim = Peta()
